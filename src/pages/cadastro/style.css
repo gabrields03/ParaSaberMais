@@ -303,3 +303,8 @@ form {
     left: 50%;
   }
 }
+
+.msg-err{
+  color: red;
+  font-size: "20px";
+}

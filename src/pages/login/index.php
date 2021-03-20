@@ -18,13 +18,14 @@
             <h2 class="title">Login</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Nome de usuário" />
+              <input name="login" type="text" placeholder="Nome de usuário" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Senha" />
+              <input name="password" type="password" placeholder="Senha" />
             </div>
             <input type="submit" value="Entrar" class="btn solid" />
+            <input type="reset" value="Limpar" class="btn solid" />
           </form>
         </div>
       </div>
