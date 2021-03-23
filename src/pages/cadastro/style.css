@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: auto;
 }
 
 body,
@@ -22,6 +23,12 @@ a:visited{
 
 a:hover{
   color: #000;
+}
+
+.msg-err{
+  color: red;
+  font-size: "15px";
+  justify-content: left;
 }
 
 .container {
@@ -304,7 +311,3 @@ form {
   }
 }
 
-.msg-err{
-  color: red;
-  font-size: "20px";
-}
