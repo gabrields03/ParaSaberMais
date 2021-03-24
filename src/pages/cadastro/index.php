@@ -73,8 +73,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if ($conn->query($sql) === TRUE) {
       header("location: ../senha/index.php");
-  } else {
-      echo "Algo de errado ocorreu. Tente novamente";
   }
 
     }
@@ -143,6 +141,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </p>
             <button class="btn transparent" id="sign-up-btn">
               <a href="../login/index.php">Login</a>
+            </button>
+            <br><br>
+            <button class="btn transparent" id="sign-up-btn">
+              <a href="../../index.php">Voltar</a>
             </button>
           </div>
           <img src="../../../img/register.svg" class="image" alt="" />
