@@ -12,7 +12,10 @@
     <br><br>
     <a href="../mural/index.php">Mural</a>
     <br><br>
+    <a href="../perfil/index.php">Perfil</a>
+    <br><br>
     <a href="../../components/logout/">Logout</a>
+    
     
     
 </body>
