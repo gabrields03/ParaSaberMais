@@ -1,2 +1,8 @@
 Créditos :
-<a href="https://icons8.com/icon/8113/cardápio">Cardápio icon by Icons8</a>
+
+
+http://www.cja.ufc.br/images/pdf/ubirajara.pdf
+http://www.cja.ufc.br/images/pdf/o%20guarani.pdf
+
+
+<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>

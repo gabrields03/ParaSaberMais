@@ -39,13 +39,23 @@ body, html {
   <div class="w3-bar w3-card" id="myNavbar" style="background-color: #0d47a1;">
     <a href="#home" class="w3-bar-item " style="text-decoration: none;font-family:anton; color:WHITE">
     <img src="../img/logops+.png" alt="" width="40" height="40" class="d-inline-block align-top">
-    PARA SABER MAIS
+    <div style="margin-left:45px;margin-top:-35px;" >PARA SABER MAIS  </div>
     </a>
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small" >
       <a href="#about" class="w3-bar-item " style="text-decoration: none;color: WHITE;">ABOUT</a>
       <a href="#team" class="w3-bar-item "style="text-decoration: none;color: WHITE;"><i class="fa fa-user"></i> TEAM</a>
-      <a href="#work" class="w3-bar-item "style="text-decoration: none;color: WHITE;"><i class="fa fa-th"></i> WORK</a>
+
+
+  <div class="w3-dropdown-hover" >
+    <button class="" style="background-color:transparent; border:0px;"> <a href="#work" class="w3-bar-item "style="text-decoration: none; color:white"><i class="fa fa-th"></i> WORK</a> </button>
+    <div class="w3-dropdown-content w3-bar-block"  style="background-color:#0d47a1;color:white;">
+      <a href="#" class="w3-bar-item w3-button  w3-hover-blue">Link 1</a>
+      <a href="#" class="w3-bar-item w3-button  w3-hover-blue">Link 2</a>
+      <a href="#" class="w3-bar-item w3-button  w3-hover-blue">Link 3</a>
+    </div>
+  </div>
+     
       <a href="#pricing" class="w3-bar-item "style="text-decoration: none;color: WHITE;"><i class="fa fa-usd"></i> PRICING</a>
       <a href="#contact" class="w3-bar-item "style="text-decoration: none;color: WHITE;"><i class="fa fa-envelope"></i> CONTACT</a>
     </div>
@@ -75,9 +85,8 @@ body, html {
 <div class="slide" style="background-color: #0086f8;" id="home">
 
 <div class="container px-4">
-  <div class="row gx-5"style="padding:30px; padding-top:80px;">
+  <div class=""style="padding:30px;display: flex; padding-top:80px;">
     <div class="col"  >
-     <div class="">
 
 
        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="max-width:500px;">
@@ -89,37 +98,63 @@ body, html {
        </div>
 
 
-
-     </div>
     </div>
-    <div class="col">
-      <div class="" >
+    <div class="col"  >
 
 
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="max-width:350px; border: 3px solid white; border-radius: 10%; ">
-       
-          <div class="carousel-inner" style="border-radius: 9%;">
-            <div class="carousel-item active">
-              <img src="../img/pessoa1.png"  class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="../img/pessoa2.png"class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="../img/pessoa1.png"  class="d-block w-100"  alt="...">
-            </div>
-          </div>
-        </div>
+   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="max-width:350px; border: 3px solid white">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../img/pessoa1.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="../img/pessoa2.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="../img/pessoa7.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="../img/pessoa8.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="../img/pessoa6.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="../img/pessoa3.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="../img/pessoa5.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="../img/pessoa4.png" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
-
-      </div>
     </div>
   </div>
 </div>
 
 
 </div>
-
 
 
 
@@ -152,10 +187,7 @@ body, html {
   </div>
 </div>
 
-<!-- Promo Section - "We know design" -->
-
-
-
+<!-- TEACHER Section -->
 
   <div class="container px-4" >
             <div class="row gx-5">
@@ -172,76 +204,53 @@ body, html {
 <div class="w3-container" style="padding:128px 16px" id="team">
   <h3 class="w3-center">THE TEAM</h3>
   <p class="w3-center w3-large">The ones who runs this company</p>
-  <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+  <div class="w3-row-padding" style="margin-top:64px">
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-card">
-        <img src="/w3images/team2.jpg" alt="John" style="width:100%">
+        <img src="../img/f1.jpeg" alt="" style="width:100%">
         <div class="w3-container">
-          <h3>John Doe</h3>
+          <h3>Machado de Alencar</h3>
           <p class="w3-opacity">CEO & Founder</p>
           <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
         </div>
       </div>
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-card">
-        <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
+        <img src="../img/f3.jpeg" alt="Jane" style="width:100%">
         <div class="w3-container">
-          <h3>Anja Doe</h3>
+          <h3>José de Assis</h3>
           <p class="w3-opacity">Art Director</p>
           <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
         </div>
       </div>
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-card">
-        <img src="/w3images/team3.jpg" alt="Mike" style="width:100%">
+        <img src="../img/f2.jpeg" alt="Mike" style="width:100%">
         <div class="w3-container">
-          <h3>Mike Ross</h3>
+          <h3>Cecília de Queiroz</h3>
           <p class="w3-opacity">Web Designer</p>
           <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
         </div>
       </div>
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-card">
-        <img src="/w3images/team4.jpg" alt="Dan" style="width:100%">
+        <img src="../img/f4.jpeg" alt="Dan" style=";width:100%">
         <div class="w3-container">
-          <h3>Dan Star</h3>
+          <h3>Rachel Meireles</h3>
           <p class="w3-opacity">Designer</p>
           <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Promo Section "Statistics" -->
-<div class="w3-container w3-row w3-center w3-dark-grey w3-padding-64">
-  <div class="w3-quarter">
-    <span class="w3-xxlarge">14+</span>
-    <br>Partners
-  </div>
-  <div class="w3-quarter">
-    <span class="w3-xxlarge">55+</span>
-    <br>Projects Done
-  </div>
-  <div class="w3-quarter">
-    <span class="w3-xxlarge">89+</span>
-    <br>Happy Clients
-  </div>
-  <div class="w3-quarter">
-    <span class="w3-xxlarge">150+</span>
-    <br>Meetings
-  </div>
-</div>
 
 <!-- Work Section -->
-<div class="w3-container" style="padding:128px 16px" id="work">
+<div class="w3-container" style="padding-bottom:128px " id="work">
   <h3 class="w3-center">OUR WORK</h3>
   <p class="w3-center w3-large">What we've done for people</p>
 
@@ -329,7 +338,7 @@ body, html {
           <span class="w3-opacity">per month</span>
         </li>
         <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-blue w3-padding-large">Sign Up</button>
+          <button class="w3-button  w3-padding-large w3-hover-blue" style="background-color:#0d47a1;color:white;">Sign Up</button>
         </li>
       </ul>
     </div>
@@ -344,8 +353,8 @@ body, html {
           <h2 class="w3-wide">$ 25</h2>
           <span class="w3-opacity">per month</span>
         </li>
-        <li class=" w3-padding-24">
-          <button class="w3-button w3-blue w3-padding-large ">Sign Up</button>
+        <li class="w3-light-grey  w3-padding-24">
+          <button class="w3-button  w3-padding-large w3-hover-blue " style="background-color:#0d47a1;color:white;">Sign Up</button>
         </li>
       </ul>
     </div>
@@ -361,7 +370,7 @@ body, html {
           <span class="w3-opacity">per month</span>
         </li>
         <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-blue w3-padding-large">Sign Up</button>
+          <button class="w3-button  w3-padding-large w3-hover-blue" style="background-color:#0d47a1;color:white;">Sign Up</button>
         </li>
       </ul>
     </div>
@@ -369,13 +378,13 @@ body, html {
 </div>
 
 <!-- Contact Section -->
-<div class="w3-container " style="padding:128px 16px;background-color:#bbdefb;COLOR:#0d47a1" id="contact">
-  <h3 class="w3-center">CONTATO</h3>
-  <p class="w3-center w3-large">Nos envie uma mensagem para mais informações:</p>
+<div class="w3-container " style="padding-top:48px;padding-bottom:48px;background-color:#bbdefb;COLOR:#0d47a1" id="contact">
+  <h3 class="w3-center"><font face='anton'>CONTATO</font></h3>
+  <p class="w3-center w3-large"><font face='agency fb'>Nos envie uma mensagem para mais informações:</font></p>
   <div style="margin-top:48px;COLOR:#0d47a1">
-    <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> CIDADE: São João Nepomuceno/MG,</p>
-    <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> TELEFONE: +55(32)3261-9999</p>
-    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> EMAIL: contato@parasabermais.com.br</p>
+    <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i><font face='agency fb'>São João Nepomuceno/MG</font></p>
+    <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> <font face='agency fb'>+55(32)3261-9999</font></p>
+    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> <font face='agency fb'>parasabermais@outlook.com.br </font></p>
     <br>
     <form action="/action_page.php" target="_blank">
       <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
@@ -389,25 +398,25 @@ body, html {
       </p>
     </form>
     <!-- Image of location/map -->
+    <div style="text-align:center">
+    <h3 class="w3-center"><font face='anton'>MAPA</font></h3>
+    <p class="w3-center w3-large"><font face='agency fb'>Nossa localização no Google Maps:</font></p>
+      <iframe class="w3-image " style="HEIGHT: 500PX;;margin-top:48px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10497.634617221393!2d-43.0107005580467!3d-21.52830138495572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb15620c7671afbb!2sCentro%20Integrado%20Sesi-Senai%20Robson%20Braga%20de%20Andrade!5e0!3m2!1spt-BR!2sbr!4v1616583373678!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
-    <img src="/w3images/map.jpg" class="w3-image w3-greyscale" style="width:100%;margin-top:48px">
+    </div>
   </div>
 </div>
 
 <!-- Footer -->
-<footer class="w3-center w3-padding-64" style="background-color:#0d47a1;color:white">
+<footer class="w3-center w3-padding-64" style="background-color: #0086f8; color:white">
   <a href="#home" class="w3-button w3-white w3-hover-blue"><i class="fa fa-arrow-up w3-margin-right"></i>CIMA</a>
-  <div class="w3-xlarge w3-section">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-  </div>
 
 </footer>
- 
+<div class="slide" style="background-color: #0d47a1;color:white;">
+  joão MAurício
+  </div>
+
+
 <script>
 // Modal Image Gallery
 function onClick(element) {
