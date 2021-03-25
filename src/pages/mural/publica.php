@@ -13,18 +13,14 @@ session_start(); // Inicia a sessão
 
 include("../../../_bd/Config.php");
 
-$sql = "INSERT INTO `post`(`id_U`, `publicacao`) 
-		VALUES ('".$_SESSION['id']."', '".$_POST["publicacao"]."')";
+$sql = "INSERT INTO `post`(`id_U`, `publicacao`) VALUES ('".$_SESSION['id']."', '".$_POST["publicacao"]."')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "<br><br><br><h4>Publicação realizada com sucesso!</h4>";
-} else {
-    echo "Erro: " . $sql . "<br>" . $conn->error;
+    header("location: ./index.php");
 }
 
 $conn->close();
 ?>
-<a href="./index.php"><h6>Voltar ao mural</h6></a>
 </div>
 </body>
 <html>

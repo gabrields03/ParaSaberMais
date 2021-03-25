@@ -36,7 +36,7 @@ if(empty(trim($_POST["password"]))) {
       $sql = "UPDATE usuarios SET password = '$hashed_password' WHERE usuarios.login = '".$_SESSION['login']."'";
   
       if ($conn->query($sql) === TRUE) {
-        header("location: ../inicial/index.php");
+        header("location: ../login/index.php");
     } else {
         echo "Algo de errado ocorreu. Tente novamente";
     }

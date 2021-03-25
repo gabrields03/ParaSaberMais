@@ -1,3 +1,7 @@
+*{
+    font-family: sans-serif;
+}
+
 input[type=text], textarea {
     width: 100%;
     padding: 12px;
@@ -26,6 +30,10 @@ input[type=submit]:hover {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
+}
+
+.titleMargin{
+    padding: 10px;
 }
 
 table {
@@ -60,7 +68,7 @@ tr:nth-child(even) {
 }
 
 #caixa-div {
-    width: 90%;
+    width: 80%;
     float: center;
     margin: 0 auto;
 }
@@ -71,6 +79,7 @@ tr:nth-child(even) {
     border-radius: 10px;
     border: 1px solid #dddddd;
     margin: 5px;
+    padding: 5px;
 }
 
 .center {

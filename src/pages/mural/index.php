@@ -1,29 +1,23 @@
-<?php  
-session_start();
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
-    exit;
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./style.css">
+	  <!-- Bootstrap CSS -->
+	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 	<title>Mural de postagens</title>
 </head>
 <body>
 <br><br>
-<a href="../inicial/">Voltar</a>
 <div class="container" style="background-color:#f1f1f1">
 </body>
 </html>
 
 
 <?php
+
+session_start();
 
 include("../../../_bd/Config.php");
 
@@ -33,12 +27,10 @@ include("../../../_bd/Config.php");
 //***** sql para buscar qual user ta logado
 if (!isset($_POST["login"]))
 {
-	$sql = "SELECT `id`, `login` FROM `usuarios`  
-		WHERE id = ".$_SESSION['id'];
+	$sql = "SELECT `id`, `login` FROM `usuarios` WHERE id = ".$_SESSION['id'];
 }else
 {	
-	$sql = "SELECT `id`, `login`, `senha` FROM `usuarios`  
-			WHERE login = '".$_POST["login"]."' AND senha = '".$_POST["password"]."'";
+	$sql = "SELECT `id`, `login`, `senha` FROM `usuarios` WHERE login = '".$_POST["login"]."' AND senha = '".$_POST["password"]."'";
 }
 
 $result = $conn->query($sql);
@@ -54,9 +46,9 @@ if ($result->num_rows > 0) {
 	echo "<br>";
 	echo "	<div id=\"caixa-div\">
 			<div id=\"caixa\">
-				  <form action=\"publicar.php\" method=\"post\">
+				  <form action=\"publica.php\" method=\"post\">
 				
-					<label for=\"lblpublicacao\">Faça uma nova publi&ccedil&atildeo</label>
+					<label class=\"titleMargin\"for=\"lblpublicacao\">Faça uma nova publi&ccedil&atildeo</label>
 					<textarea id=\"publicacao\" name=\"publicacao\" placeholder=\"Digite algo..\" style=\"height:100px\" required></textarea>
 
 					<input type=\"submit\" value=\"Publicar\">
@@ -65,8 +57,7 @@ if ($result->num_rows > 0) {
 			</div>";
 			
 	//*************** INICIO DA listagem de todos os posts ***********
-	$sql = "SELECT post.id_P,post.publicacao,post.reg_date,usuarios.login FROM post,usuarios  
-		WHERE post.id_U = usuarios.id order by reg_date DESC";
+	$sql = "SELECT post.id_P,post.publicacao,post.reg_date,usuarios.login FROM post,usuarios WHERE post.id_U = usuarios.id order by reg_date DESC";
 	
 	$result = $conn->query($sql);
 	//conta o total de posts feitos 
@@ -77,11 +68,8 @@ if ($result->num_rows > 0) {
     $inicio = (50*$pagina)-50; 
  
     //seleciona os itens por página 
-	
-    $sql = "SELECT post.id_P,post.publicacao,DATE_FORMAT(post.reg_date, \"%d/%m/%Y às %H:%i\") as reg_date,usuarios.login FROM post,usuarios 
-			WHERE post.id_U = usuarios.id  order by reg_date DESC limit ".$inicio.",10"; 
+    $sql = "SELECT post.id_P,post.publicacao,DATE_FORMAT(post.reg_date, \"%d/%m/%Y às %H:%i\") as reg_date,usuarios.login FROM post,usuarios WHERE post.id_U = usuarios.id  order by reg_date DESC limit ".$inicio.",10"; 
 			
-	
     $result = $conn->query($sql); 
    
 		if ($result->num_rows > 0) {
@@ -110,6 +98,7 @@ if ($result->num_rows > 0) {
 	echo "Desculpe mas o usuário ou a senha não foram encontrados.<br>Deseja se <a href=\"../login/\">cadastrar</a> ou voltar para a tela de <a href=\"../login/\">login</a>?";
 }
 $conn->close();
+
 ?>
 
   </div>
