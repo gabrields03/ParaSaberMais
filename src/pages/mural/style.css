@@ -27,9 +27,11 @@ input[type=submit]:hover {
 }
 
 .container {
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #f2f2f2;
     padding: 20px;
+    margin-left: 15%;
+    width: 80%;
 }
 
 .titleMargin{
@@ -65,10 +67,11 @@ tr:nth-child(even) {
     border-radius: 10px;
     border: 1px solid #dddddd;
     margin: 5px;
+    width: 90%;
 }
 
 #caixa-div {
-    width: 80%;
+    width: 90%;
     float: center;
     margin: 0 auto;
 }

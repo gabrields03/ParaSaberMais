@@ -1,12 +1,18 @@
+<?php
+session_start();
+include"../../components/header/index.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./style.css">
 	  <!-- Bootstrap CSS -->
 	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-	<title>Mural de postagens</title>
+	  <link rel="stylesheet" href="./style.css">
+	  <title>Mural de postagens</title>
 </head>
 <body>
 <br><br>
@@ -16,21 +22,16 @@
 
 
 <?php
-
-session_start();
-
 include("../../../_bd/Config.php");
 
 //verifica a página atual caso seja informada na URL, senão atribui como 1ª página 
     $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1; 
 	
 //***** sql para buscar qual user ta logado
-if (!isset($_POST["login"]))
-{
+if (!isset($_POST["login"])){
 	$sql = "SELECT `id`, `login` FROM `usuarios` WHERE id = ".$_SESSION['id'];
-}else
-{	
-	$sql = "SELECT `id`, `login`, `senha` FROM `usuarios` WHERE login = '".$_POST["login"]."' AND senha = '".$_POST["password"]."'";
+}else{	
+	$sql = "SELECT `id`, `login` FROM `usuarios` WHERE login = '".$_POST["login"]."'";
 }
 
 $result = $conn->query($sql);
@@ -95,7 +96,7 @@ if ($result->num_rows > 0) {
 		}
 //**************************************************************************
 } else {
-	echo "Desculpe mas o usuário ou a senha não foram encontrados.<br>Deseja se <a href=\"../login/\">cadastrar</a> ou voltar para a tela de <a href=\"../login/\">login</a>?";
+	echo "Desculpe mas o usuário ou a senha não foram encontrados.<br>Deseja se <a href=\"../cadastrp/index.php\">cadastrar</a> ou voltar para a tela de <a href=\"../login/index.php\">login</a>?";
 }
 $conn->close();
 

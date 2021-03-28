@@ -1,153 +1,91 @@
 <?php
-// inicializa a sessão
 session_start();
+include"../../../_bd/Config.php";
 
-// verifica se o usuário está logado, se não estiver redireciona para a página de login
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: ../login/index.php");
-    exit;
-}
-
-// importa o arquivo de configuração
-require_once "../../../_bd/Config.php";
-
-// cria e inicializa as variáveis com ""
-$login = $name = $cell = "";
-$login_err = $name_err = $cell_err = "";
-
-// testa se o método utilizado foi o POST
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-
-    //valida login
-    if(empty(trim($_POST["login"]))){
-        $login_err = "Por favor entre com o email.";
-     } else{
-        $login = trim($_POST["login"]);
-    }
-
-
-    //valida name
-    if(empty(trim($_POST["name"]))){
-        $name_err = "Por favor entre com o nome.";
-     } else{
-        $name = trim($_POST["name"]);
-    }
-
-    
-    //valida cell
-    if(empty(trim($_POST["cell"]))){
-        $cell_err = "Por favor entre com o cell.";
-     } else{
-        $cell = trim($_POST["cell"]);
-    }
-  
-
-    // checa erros de entrada antes de inserir no bd
-    if(empty($login_err) && empty($name_err) && empty($cell_err)){
-        // prepara a query de atualização
-        $sql = "UPDATE usuarios SET nome = ?, name = ?, cell = ?  WHERE id = ?";
-
-        if($stmt = mysqli_prepare($link, $sql)){
-            // vincula as variáveis à instrução preparada com parâmetros
-            mysqli_stmt_bind_param($stmt, "sssi", $param_login, $param_name, $param_cell, $param_id);
-             
-            $param_login = $login;
-            $param_name = $name;
-            $param_cell = $cell;
-            $param_id = $_SESSION["id"];
-
-            //armazena as novas informações em sessão
-            $_SESSION["login"] = $login;
-            $_SESSION["name"] = $name;
-            $_SESSION["cell"] = $cell;
-
-            // executa a query preparada
-            if(mysqli_stmt_execute($stmt)){
-               
-                header("location: perfil.php");
-            
-            } else{
-                echo "Desculpe! Algo errado aconteceu. Por favor tente novamente.";
-            }
-
-            // fecha a query
-            mysqli_stmt_close($stmt);
-        }
-    }
-
-    // encerra a conexão
-    mysqli_close($link);
-}
 ?>
+<html>
+<title>ParaSaberMais</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./style.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
+<body class="w3-light-grey">
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Perfil</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-</head>
-<body>
-    <div class="container">
-        <div class="content first-content">
-            <div class="first-column">
-                <h2 class="title title-primary">Olá <?php echo $_SESSION["login"]; ?>!</h2>
-                <p class="description description-primary">Esse é seu perfil</p>
-                <p class="description description-primary">Você pode editá-lo, caso desejar.</p>
-			   <a href="../inicial/index.php"> <button class="btn btn-primary">Voltar</button> </a> 
-			   <br>
-			   <a href="./newpassword.php"> <button class="btn btn-primary">Alterar senha</button> </a>
-			   <br>
-			   <a href="./avatar.php"> <button class="btn btn-primary">Adicionar avatar</button> </a> 
-			   <br>
-			   <a href="./informacoes.php"> <button class="btn btn-primary">Visualizar informações</button> </a> 
-            </div>    
-            <div class="second-column">
-                <h2 class="title title-second">Perfil</h2>
+<!-- Page Container -->
+<div class="w3-content" style="max-width:1400px;">
 
-                <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form">
-                    
-
-                <div class="form-group <?php echo (!empty($login_err)) ? 'has-error' : ''; ?>">
-                <label class="label-input" for="">
-                        <i class="fas fa-user icon-modify"></i>
-                        <input type="text" placeholder="text"  name="login" class="form-control" value="<?php echo $_SESSION["login"]; ?>">
-                    </label>
-                 </div>
-				
-				<div class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
-                 <label class="label-input" for="">
-                        <i class="fas fa-user icon-modify"></i>
-                        <input type="text" placeholder="Nome de usuário" name="name" class="form-control" value="<?php echo $_SESSION["name"]; ?>">
-                    </label>
-                    <span class="help-block"></span>
-				</div>
-
-                <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
-                <label class="label-input" for="">
-                        <i class="fas fa-envelope icon-modify"></i>
-                        <input type="email" placeholder="email"  name="email" class="form-control" value="<?php echo $_SESSION["email"]; ?>">
-                    </label>
-                 </div>
-				
-				<div class="form-group <?php echo (!empty($cell_err)) ? 'has-error' : ''; ?>">
-                 <label class="label-input" for="">
-                        <i class="fas fa-phone icon-modify"></i>
-                        <input type="number" placeholder="cell" name="cell" class="form-control" value="<?php echo $_SESSION["cell"]; ?>">
-                    </label>
-				</div>
-				
-
-                   <input type="submit" class="btn btn-primary" value="Editar">
-                   
-                </form>
-            </div>
+  <!-- The Grid -->
+  <div class="w3-row-padding ">
+  
+    <!-- Left Column -->
+    <div class="w3-third ">
+    
+      <div class="w3-white w3-text-grey w3-card-4 w3-margin-top">
+        <div class="w3-display-container" >
+          <img src="../../../img/foto1.png" style="width:100%"; alt="Avatar">
+          <div class="w3-display-bottomleft w3-container w3-text-black">
+	</form>
+            <h2><?php echo $_SESSION["login"]; ?></h2>
+            
+          </div>
         </div>
+        <form action="envia.php" method="POST" enctype="multipart/form-data">
+            <input type="file" name="arquivo">
+            <input type="submit" value="Cadastrar">
+        </form>
+        <div class="w3-container">
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $_SESSION["name"]; ?></p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>São João Nepomuceno</p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $_SESSION["email"]; ?></p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $_SESSION["cell"]; ?></p>
+
+          <hr>
+
+          <br>
+        </div>
+      </div><br>
+
+    <!-- End Left Column -->
     </div>
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+    
+      <div class="w3-container w3-card w3-white w3-margin-bottom w3-margin-top">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Front End Developer / w3schools.com</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+          <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Web Developer / something.com</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2012 - Dec 2014</h6>
+          <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Graphic Designer / designsomething.com</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2010 - Mar 2012</h6>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p><br>
+        </div>
+
+      </div>
+
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+
 </body>
 </html>
