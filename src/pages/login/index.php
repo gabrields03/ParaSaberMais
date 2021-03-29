@@ -36,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($login_err) && empty($password_err)){
 
          // prepara a query de consulta
-         $sql = "SELECT id, login, name, cell, email, password, idavatar,  dtRegistro FROM usuarios WHERE login = '".$_POST["login"]."'";
+         $sql = "SELECT id, login, name, cell, email, password, dtRegistro FROM usuarios WHERE login = '".$_POST["login"]."'";
 
           // armazena a query
           $result = $conn->query($sql);
@@ -56,7 +56,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                $_SESSION["cell"] = $row["cell"];
                $_SESSION["email"] = $row["email"];
                $_SESSION["dtRegistro"] = $row["dtRegistro"];
-               $_SESSION["idavatar"] = $row["idavatar"];
+               $_SESSION["img"] = $row["img"];
 
                //redireciona para página inicial
                header("location: ../inicial/index.php");

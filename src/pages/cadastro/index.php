@@ -31,29 +31,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           $login_err = "Nome de usuário indisponível. Tente novamente.";       
         }	
     } 
-    $login = trim($_POST["login"]);
-    $_SESSION["login"] = $login;
+    $_SESSION["login"] = trim($_POST["login"]);
   }
 
     //valida nome completo
     if(empty(trim($_POST["name"]))){
       $name_err = "Por favor entre com o nome completo.";
     } else{
-        $name = trim($_POST["name"]);
+        $_SESSION["name"] = trim($_POST["name"]);
     }
 
-    //valida o email
+    //valida o email$s
     if(empty(trim($_POST["email"]))){
       $email_err = "Por favor entre com o email.";
     } else{
-      $email = trim($_POST["email"]);
+      $_SESSION["email"] = trim($_POST["email"]);
     }
 
     //valida o telefone
     if(empty(trim($_POST["cell"]))){
       $cell_err = "Por favor entre com o telefone.";
     } else{
-      $cell = trim($_POST["cell"]);
+      $_SESSION["cell"] = trim($_POST["cell"]);
     }
 
     if(!empty($login_err & $email_err || $cell_err)){
@@ -69,13 +68,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // checa erros de entrada antes de inserir no bd
     if(empty($login_err) && empty($name_err) && empty($cell_err) && empty($email_err)){
     
-    $sql = "INSERT INTO usuarios (login, name, cell, email) VALUES ('".$_POST["login"]."', '".$_POST["name"]."', '".$_POST["cell"]."', '".$_POST["email"]."')";
-
-    if ($conn->query($sql) === TRUE) {
       header("location: ../senha/index.php");
+  } else{
+    echo"Algo deu errado, tente novamente";
   }
-
-    }
 
     //fecha conexão
     $conn->close();

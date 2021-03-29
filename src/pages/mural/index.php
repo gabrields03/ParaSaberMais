@@ -30,8 +30,6 @@ include("../../../_bd/Config.php");
 //***** sql para buscar qual user ta logado
 if (!isset($_POST["login"])){
 	$sql = "SELECT `id`, `login` FROM `usuarios` WHERE id = ".$_SESSION['id'];
-}else{	
-	$sql = "SELECT `id`, `login` FROM `usuarios` WHERE login = '".$_POST["login"]."'";
 }
 
 $result = $conn->query($sql);

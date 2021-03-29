@@ -33,7 +33,7 @@ if(empty(trim($_POST["password"]))) {
      if(empty($password_err) && empty($confirm_password_err)){
       
       $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-      $sql = "UPDATE usuarios SET password = '$hashed_password' WHERE usuarios.login = '".$_SESSION['login']."'";
+      $sql = "INSERT INTO usuarios (login, name, cell, email, password, img) VALUES ('".$_SESSION["login"]."', '".$_SESSION["name"]."', '".$_SESSION["cell"]."', '".$_SESSION["email"]."', '$hashed_password', 'user.jpg')";
   
       if ($conn->query($sql) === TRUE) {
         header("location: ../login/index.php");
