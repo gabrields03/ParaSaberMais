@@ -7,7 +7,7 @@
     <title>Para Saber Mais</title>
 </head>
 <body>
-    <a href="./pages/cadastro/">Cadastrar</a>
-    <a href="./pages/login/">login</a>
+    <a href="./cadastro/">Cadastrar</a>
+    <a href="./login/">login</a>
 </body>
 </html>
