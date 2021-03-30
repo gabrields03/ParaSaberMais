@@ -17,6 +17,9 @@
     <a href="../../components/logout/">Logout</a>
     <br><br>
     <a href="../download_livros/">Livros</a>
+    <br><br>
+    <a href="../contato/">Contato</a>
+  
     
     
     

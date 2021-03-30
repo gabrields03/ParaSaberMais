@@ -1,6 +1,12 @@
 <?php
 session_start();
-include"../../components/header/index.php";
+
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+	header("location: ../login/index.php");
+	exit;
+  }
+  
+include"../../components/side/index.php";
 
 ?>
 

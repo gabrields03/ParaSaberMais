@@ -1,24 +1,34 @@
 <?php
 session_start();
 
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+  header("location: ../login/index.php");
+  exit;
+}
+
 include"../../../_bd/Config.php";
 
-if (isset($_FILES['foto-perfil']) && $_FILES['foto-perfil']['error'] == 0) {
+if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] == 0) {
   $imagem = array();
-  $imagem = $_FILES['foto-perfil'];
+  $imagem = $_FILES['foto_perfil'];
   $url = save_image($imagem);
 echo $url;
 }
 
+/**
+* Está função é responsável para salva uma imágem no diretório uploads/usuarios/
+* @return String "url da imagem" ou null
+* @author Joab Torres <joabtorres1508@gmail.com>
+*/
 function save_image($file) {
   $imagem = array();
   $largura = 400; //largura desejada
   $altura = 400; // altura deseada
-  $imagem['diretorio'] = 'fotos_perfil'; //diretório desejado
+  $imagem['diretorio'] = './uploads'; //diretório desejado
   $imagem['temp'] = $file['tmp_name'];
   $imagem['extensao'] = explode(".", $file['name']);
   $imagem['extensao'] = strtolower(end($imagem['extensao']));
-  $imagem['name'] = $_FILES['foto-perfil']['name'];
+  $imagem['name'] = md5(rand(1000, 900000) . time()) . '.' . $imagem['extensao'];
   if ($imagem['extensao'] == 'jpg' || $imagem['extensao'] == 'jpeg' || $imagem['extensao'] == 'png') {
 
       list($larguraOriginal, $alturaOriginal) = getimagesize($imagem['temp']);
@@ -26,7 +36,7 @@ function save_image($file) {
 
       $ratio = max($largura / $larguraOriginal, $altura / $alturaOriginal);
       $alturaOriginal = $altura / $ratio;
-      $x = ($larguraOriginal - $largura / $ratio) / 2; //transforma a imagem em quadrada
+      $x = ($larguraOriginal - $largura / $ratio) / 2; //transforma a imagem em guadrada
       $larguraOriginal = $largura / $ratio;
 
 
@@ -41,14 +51,13 @@ function save_image($file) {
           imagecopyresampled($imagem_final, $imagem_original, 0, 0, $x, 0, $largura, $altura, $larguraOriginal, $alturaOriginal);
           imagepng($imagem_final, $imagem['diretorio'] . "/" . $imagem['name']);
       }
-
-     
+      return $imagem['diretorio'] . "/" . $imagem['name'];
   } else {
-    echo'Formato não aceito, somente jpg, jpeg ou png';
+      return null;
   }
 }
 
-if (isset($_FILES['foto-perfil']) && $_FILES['foto-perfil']['error'] == 0) {
+if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] == 0) {
   $sql = "UPDATE usuarios SET img = '".$imagem['name']."' WHERE usuarios.login = '".$_SESSION['login']."'";
   $conn->query($sql);
 }
@@ -95,8 +104,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           </div>
         </div>
 
-        <form method="POST" enctype="multipart/form-data" autocomplete="off">
-          <input type="file" name="foto-perfil"/>
+        <form action="index.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+          <input type="file" name="foto_perfil"/>
           <input type="submit" value="Enviar">
         </form>
    
