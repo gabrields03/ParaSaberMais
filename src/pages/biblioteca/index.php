@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -16,9 +19,6 @@
   <div class="cd-logo-wrapper">
       <a href="../home/" class="cd-logo">Voltar</a>
     </div>
-    <div class="cd-logo-wrapper" style="margin-left:auto;margin-right:auto">
-      <a href="#0" class="cd-logo">Para Saber Mais</a>
-    </div>
     
     <div class=" js-cd-search">
     </div>
@@ -26,17 +26,17 @@
     <button class="reset cd-nav-trigger js-cd-nav-trigger" aria-label="Toggle menu"><span></span></button>
   
     <ul class="cd-nav__list js-cd-nav__list">
-      <li class="cd-nav__item"><a href="#0">Ajuda</a></li>
-      <li class="cd-nav__item"><a href="#0">Contato</a></li>
+      <li class="cd-nav__item"><a href="../help/index.php">Ajuda</a></li>
+      <li class="cd-nav__item"><a href="../contato/index.php">Contato</a></li>
       <li class="cd-nav__item cd-nav__item--has-children cd-nav__item--account js-cd-item--has-children">
         <a href="#0">
-          <img src="../../pages/perfil/uploads/Foto_gabriel.jpg" alt="avatar">
+          <img src="../../pages/perfil/uploads/<?php echo"$_SESSION[login].jpg "?>" onerror="this.src='../perfil/uploads/user.jpg'" alt="avatar">
           <span>Conta</span>
         </a>
     
         <ul class="cd-nav__sub-list">
-          <li class="cd-nav__sub-item"><a href="#0">Editar Conta</a></li>
-          <li class="cd-nav__sub-item"><a href="#0">Logout</a></li>
+          <li class="cd-nav__sub-item"><a href="../perfil/index.php">Editar Conta</a></li>
+          <li class="cd-nav__sub-item"><a href="../../components/logout/index.php">Logout</a></li>
         </ul>
       </li>
     </ul>
@@ -240,12 +240,9 @@
 </div>
 <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+</body>
 </body>
 </html>
      
-  <script src="assets/js/util.js"></script> <!-- util functions included in the CodyHouse framework -->
-  <script src="assets/js/menu-aim.js"></script>
-  <script src="assets/js/main.js"></script>
-</body>
 </html>

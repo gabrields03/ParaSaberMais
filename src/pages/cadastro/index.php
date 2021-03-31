@@ -66,9 +66,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($login_err) && empty($name_err) && empty($cell_err) && empty($email_err)){
     
       header("location: ../senha/index.php");
-  } else{
-    echo"Algo deu errado, tente novamente";
-  }
+  } 
 
     //fecha conexão
     $conn->close();

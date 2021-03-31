@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>ParaSaberMais</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -354,103 +354,8 @@ function myFunction() {
   </div>
 </div>
 
-
-<!-- Pricing Section -->
-<div class="w3-container w3-center" style="padding:128px 16px;" id="pricing">
-  <h3>Opções de Curso</h3>
-  <p class="w3-large">Organização de acordo com o que você precisa </p>
-
-  <div class="w3-row-padding" style="margin-top:64px;">
-    <div class="w3-third w3-section" >
-      <ul class="w3-ul w3-white w3-hover-shadow" style="border:2px solid #0d47a1;border-radius:40px;"  >
-        <li class=" w3-xlarge w3-padding-32"  style="background-color:#0d47a1;color:white;border-radius:36px;">Básico</li>
-        <li class="w3-padding-16">Playground</li>
-        <li class="w3-padding-16">Contato</li>
-        <li class="w3-padding-16" style="text-decoration: line-through;">Redação</li>
-        <li class="w3-padding-16" style="text-decoration: line-through;">Simulado</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide">Gratuito</h2>
-        </li>
-        <li class="w3-light-grey w3-padding-24" style="border-radius:40px;">
-          <button class="w3-button  w3-padding-large w3-hover-blue" style="background-color:#0d47a1;color:white;border-radius:40px;">Inscreva-se</button>
-        </li>
-      </ul>
-    </div>
-
-    <div class="w3-third">
-      <ul class="w3-ul w3-white w3-hover-shadow" style="border:2px solid #0d47a1;border-radius:40px;">
-        <li class="w3-xlarge w3-padding-48"  style="background-color:#0d47a1;color:white;border-radius:36px;">Pro</li>
-        <li class="w3-padding-16">Playground</li>
-        <li class="w3-padding-16">Contato</li>
-        <li class="w3-padding-16"><b>1x</b> Redação</li>
-        <li class="w3-padding-16"><b>1x</b> Simulado</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide">Gratuito</h2>
-        </li>
-        <li class="w3-light-grey  w3-padding-24" style="border-radius:40px;">
-          <button class="w3-button  w3-padding-large w3-hover-blue " style="background-color:#0d47a1;color:white;border-radius:40px;">Inscreva-se</button>
-        </li>
-      </ul>
-    </div>
-
-    <div class="w3-third w3-section">
-      <ul class="w3-ul w3-white w3-hover-shadow" style="border:2px solid #0d47a1;border-radius:40px;">
-        <li class=" w3-xlarge w3-padding-32"  style="background-color:#0d47a1;color:white;border-radius:36px;">Premium</li>
-        <li class="w3-padding-16"> Playground</li>
-        <li class="w3-padding-16"> Contato</li>
-        <li class="w3-padding-16"><b>3x</b> Redação</li>
-        <li class="w3-padding-16"><b>2x</b> Simulado</li>
-        <li class="w3-padding-16">
-          <h2 class="w3-wide">Gratuito</h2>
-        </li>
-        <li class="w3-light-grey w3-padding-24" style="border-radius:40px;">
-          <button class="w3-button  w3-padding-large w3-hover-blue" style="background-color:#0d47a1;color:white;border-radius:40px;">Inscreva-se</button>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-
 <!-- Footer -->
-<footer class="w3-center w3-padding-64" style="background-color: #0086f8; color:white">
 
-<div class="container px-4">
-  <div class="row gx-5">
-    <div class="col">
-     <div class="">
-     <a href="#home" class="w3-button w3-white w3-hover-blue"><i class="fa fa-arrow-up w3-margin-right"></i>CIMA</a>
-     <hr>
-
-      <div class="container overflow-hidden">
-        <div class="row gx-5">
-          <div class="col">
-          <div class=""> 
-          <img src="./img/techunix.png" alt="" width="100" height="100" class="d-inline-block align-top">
-          <img src="./img/logops+.png" alt="" width="100" height="100" class="d-inline-block align-top" style="margin-top:10px">
-
-
-          </div>
-          </div>
-
-          <div class="col">
-            <div class="p-3 border bg-light">
-
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-     </div>
-    </div>
-  </div>
-</div>
-
-
-
-</footer>
 <div class="slide" style="background-color: #0d47a1;color:white;">
 <div>
 <p>Desenvolvido por <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-blue" style="color:white;text-decoration:none;">TECHUNIX</a></p>

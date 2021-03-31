@@ -82,11 +82,6 @@ document.getElementsByTagName("html")[0].className += " js";
           </ul>
         </li>
 
-        <li class="cd-side__item cd-side__item--has-children cd-side__item--bookmarks js-cd-item--has-children">
-          <a href="../provas/index.php">Provas e Simulados</a>
-          
-        </li>
-
         <li class="cd-side__item cd-side__item--has-children cd-side__item--users js-cd-item--has-children">
           <a href="../perfil/index.php">Perfil</a>
           
@@ -131,7 +126,7 @@ document.getElementsByTagName("html")[0].className += " js";
 	<div class="px-10 mt-6">
   <div><?php echo"Seja bem-vindo $_SESSION[login]"?></div>
   <br>
-		<h1 class="text-2xl font-bold">Planejamento Semanal - 29/03 até 02/04 -<a href="./index2.php"> Próxima semana</a></h1>
+		<h1 class="text-2xl font-bold">Planejamento Semanal - 05/04 até 09/04 -<a href="./index.php"> Semana anterior</a></h1>
 	</div>
 	<div class="flex flex-grow px-10 mt-4 space-x-6 overflow-auto" style="width: 80%;">
 		<div class="flex flex-col flex-shrink-0 w-72" style="width: 230px;">
@@ -140,6 +135,28 @@ document.getElementsByTagName("html")[0].className += " js";
 				<span class="block text-sm font-semibold">Segunda-Feira</span>
 			</div>
       
+			<div class="flex flex-col pb-2 overflow-auto" >
+				<div class="relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" draggable="true">
+					<span class="flex items-center h-6 px-3 text-xs font-semibold text-yellow-500 bg-yellow-100 rounded-full">História</span>
+					<h4 class="mt-3 text-sm font-medium">Introdução ao período paleolítico.</h4>
+				</div>
+
+				<div class="relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" draggable="true">
+					<span class="flex items-center h-6 px-3 text-xs font-semibold text-red-500 bg-red-100 rounded-full">Geografia</span>
+					<h4 class="mt-3 text-sm font-medium">Introdução a globalização.</h4>
+				</div>
+
+			</div>
+		</div>
+
+
+
+		<div class="flex flex-col flex-shrink-0 w-72" style="width: 230px;">
+
+			<div class="flex items-center flex-shrink-0 h-10 px-2">
+				<span class="block text-sm font-semibold">Terça-feira</span>
+			</div>
+
 			<div class="flex flex-col pb-2 overflow-auto">
 
 				<div class="relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" draggable="true">
@@ -165,29 +182,28 @@ document.getElementsByTagName("html")[0].className += " js";
 		<div class="flex flex-col flex-shrink-0 w-72" style="width: 230px;">
 
 			<div class="flex items-center flex-shrink-0 h-10 px-2">
-				<span class="block text-sm font-semibold">Terça-feira</span>
+				<span class="block text-sm font-semibold">Quinta-feira</span>
 			</div>
 
-			<div class="flex flex-col pb-2 overflow-auto" >
+      <div class="flex flex-col pb-2 overflow-auto">
 				<div class="relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" draggable="true">
-					<span class="flex items-center h-6 px-3 text-xs font-semibold text-yellow-500 bg-yellow-100 rounded-full">História</span>
-					<h4 class="mt-3 text-sm font-medium">Introdução ao período paleolítico.</h4>
+					<span class="flex items-center h-6 px-3 text-xs font-semibold text-gray-500 bg-gray-100 rounded-full">Química</span>
+					<h4 class="mt-3 text-sm font-medium">Introdução a tabela periódica.</h4>
 				</div>
 
 				<div class="relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" draggable="true">
-					<span class="flex items-center h-6 px-3 text-xs font-semibold text-red-500 bg-red-100 rounded-full">Geografia</span>
-					<h4 class="mt-3 text-sm font-medium">Introdução a globalização.</h4>
+					<span class="flex items-center h-6 px-3 text-xs font-semibold text-gray-500 bg-gray-100 rounded-full">Química</span>
+					<h4 class="mt-3 text-sm font-medium">Continuação tabela periódica.</h4>
 				</div>
 
 			</div>
+		
 		</div>
 
 
-
 		<div class="flex flex-col flex-shrink-0 w-72" style="width: 230px;">
-
 			<div class="flex items-center flex-shrink-0 h-10 px-2">
-				<span class="block text-sm font-semibold">Quinta-feira</span>
+				<span class="block text-sm font-semibold">Sexta-feira</span>
 			</div>
 
 			<div class="flex flex-col pb-2 overflow-auto">
@@ -204,26 +220,6 @@ document.getElementsByTagName("html")[0].className += " js";
 				<div class="relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" draggable="true">
 					<span class="flex items-center h-6 px-3 text-xs font-semibold text-purple-500 bg-purple-100 rounded-full">Português</span>
 					<h4 class="mt-3 text-sm font-medium">Figuras de linguagem.</h4>
-				</div>
-
-			</div>
-		</div>
-
-
-		<div class="flex flex-col flex-shrink-0 w-72" style="width: 230px;">
-			<div class="flex items-center flex-shrink-0 h-10 px-2">
-				<span class="block text-sm font-semibold">Sexta-feira</span>
-			</div>
-
-			<div class="flex flex-col pb-2 overflow-auto">
-				<div class="relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" draggable="true">
-					<span class="flex items-center h-6 px-3 text-xs font-semibold text-gray-500 bg-gray-100 rounded-full">Química</span>
-					<h4 class="mt-3 text-sm font-medium">Introdução a tabela periódica.</h4>
-				</div>
-
-				<div class="relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100" draggable="true">
-					<span class="flex items-center h-6 px-3 text-xs font-semibold text-gray-500 bg-gray-100 rounded-full">Química</span>
-					<h4 class="mt-3 text-sm font-medium">Continuação tabela periódica.</h4>
 				</div>
 
 			</div>

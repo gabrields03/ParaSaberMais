@@ -13,7 +13,7 @@ input{
     color: #fff;
 }
 .title-second {
-    color:#4481eb;
+    color:#0d47a1;
 }
 .description {
     font-size: 14px;
@@ -45,19 +45,19 @@ a:link{
 }
 
 .btn-primary {
-    background-color: #4481eb !important;
+    background-color: #0d47a1 !important;
     border: 1px solid #fff !important;
     transition: background-color .5s !important;
 }
 .btn-primary:hover {
     background-color: #fff !important;
-    border: 1px solid#4481eb !important;
-    color:#4481eb !important;
+    border: 1px solid#0d47a1 !important;
+    color:#0d47a1 !important;
 }
 
 
 .help-block{
-    color: #4481eb;
+    color: #0d47a1;
     font-size: 15px;
 }
 

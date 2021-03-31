@@ -24,6 +24,8 @@ ALTER TABLE `usuarios`
  
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+INSERT INTO usuarios (login, name, cell, email, password) VALUES ("Instrutor", "Maurício Martins", "3299999999", "mauricioramartins@gmail.com", "1234");
+
 
 CREATE TABLE `post` (
   `id_P` int(6) UNSIGNED NOT NULL,

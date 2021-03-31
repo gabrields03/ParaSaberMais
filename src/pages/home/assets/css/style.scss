@@ -109,6 +109,10 @@ a {
   }
 }
 
+a:link{
+  text-decoration: none;
+}
+
 .cd-logo {
 	display: block;
   margin: 0 var(--space-md);

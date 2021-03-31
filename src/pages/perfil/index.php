@@ -8,7 +8,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 include"../../../_bd/Config.php";
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if (isset($_POST['send']) ) {
 
 
   //valida login
@@ -60,7 +60,7 @@ if(empty(trim($_POST["password"]))) {
   }
 
   // checa erros de entrada antes de inserir no bd
-  if(empty($login_err) && empty($name_err) && empty($cell_err) && empty($new_password_err) && empty($confirm_password_err)){
+  if(empty($login_err) && empty($name_err) && empty($cell_err)){
 
       $hashed_password = password_hash($password, PASSWORD_DEFAULT);
       // prepara a query de atualização
@@ -112,6 +112,7 @@ function save_image($file) {
   }
 
 ?>
+
 <html>
 <title>ParaSaberMais</title>
 <meta charset="UTF-8">
@@ -168,7 +169,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     <div class="w3-twothird">
     
       <div class="w3-container w3-card w3-white w3-margin-bottom w3-margin-top">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-user fa-fw w3-margin-right w3-xxlarge"></i>Página de Perfil</h2>
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-user fa-fw w3-margin-right w3-xxlarge"></i>Página de Perfil <a href="../home/index.php" style="color: #0d47a1;border-radius:15px">Voltar</a></h2>
         <div class="w3-container">
           <h5 class="w3-opacity"><b>Altere seus dados</b></h5>
           <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form">
@@ -210,7 +211,6 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                             <i class="fas fa-phone icon-modify"></i>
                             <input type="password" placeholder="Senha" name="password" class="form-control" style="font-size: 15px;">
                         </label>
-                        <span class="help-block"><?php echo $password_err; ?></span>
             </div>
 
             <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
@@ -218,12 +218,11 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                             <i class="fas fa-phone icon-modify"></i>
                             <input type="password" placeholder="Confirme a Senha" name="confirm_password" class="form-control" style="font-size: 15px;">
                         </label>
-                        <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
             
             
     
-                       <input type="submit" class="btn btn-primary" value="Editar">
+                       <input type="submit" class="btn btn-primary" name="send" value="Editar">
                        
                     </form>
           <hr>
