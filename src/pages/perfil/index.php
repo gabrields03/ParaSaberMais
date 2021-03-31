@@ -23,27 +23,49 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   if(empty(trim($_POST["name"]))){
       $name_err = "Por favor entre com o nome.";
    } else{
-      $name = trim($_POST["name"]);
+    $_SESSION["name"]  = trim($_POST["name"]);
   }
 
-  
+  //valida email
+  if(empty(trim($_POST["email"]))){
+    $email_err = "Por favor entre com o email.";
+ } else{
+  $_SESSION["email"] = trim($_POST["email"]);
+}
+
   //valida cell
   if(empty(trim($_POST["cell"]))){
       $cell_err = "Por favor entre com o cell.";
    } else{
-      $cell = trim($_POST["cell"]);
+    $_SESSION["cell"] = trim($_POST["cell"]);
   }
 
+  // validação da senha
+if(empty(trim($_POST["password"]))) { 
+  $password_err = "Por favor entre com a senha.";
+} elseif(strlen($_POST["password"]) < 4){
+  $password_err = "A senha deve conter ao menos 4 caracteres.";
+} else{
+  $password = trim($_POST["password"]);
+}
+
+// Confirmação da senha
+  if(empty(trim($_POST["confirm_password"]))){
+      $confirm_password_err = "Por favor confirme a senha.";
+  } else{
+      $confirm_password = trim($_POST["confirm_password"]);
+      if(empty($password_err) && ($password != $confirm_password)){
+          $confirm_password_err = "As senhas digitadas são diferentes.";
+      }
+  }
 
   // checa erros de entrada antes de inserir no bd
-  if(empty($login_err) && empty($name_err) && empty($cell_err)){
+  if(empty($login_err) && empty($name_err) && empty($cell_err) && empty($new_password_err) && empty($confirm_password_err)){
+
+      $hashed_password = password_hash($password, PASSWORD_DEFAULT);
       // prepara a query de atualização
-      $sql = "UPDATE usuarios SET login = '".$_SESSION["login"]."' WHERE login = '".$_SESSION["login"]."'";
-      if ($conn->query($sql) === TRUE) {
-        echo"deubom";
-    } else{
-      echo"deuruim";
-    }
+      $sql = "UPDATE usuarios SET login = '".$_POST["login"]."', name = '".$_POST["name"]."',cell = '".$_POST["cell"]."', email = '".$_POST["email"]."', password = '$hashed_password' WHERE id = '".$_SESSION["id"]."'";
+      $conn->query($sql);
     
     $conn->close();
   }
@@ -186,17 +208,17 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                      <label class="label-input" for="">
                             <i class="fas fa-phone icon-modify"></i>
-                            <input type="number" placeholder="Senha" name="password" class="form-control" value="Senha" style="font-size: 15px;">
+                            <input type="password" placeholder="Senha" name="password" class="form-control" style="font-size: 15px;">
                         </label>
                         <span class="help-block"><?php echo $password_err; ?></span>
             </div>
 
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
                      <label class="label-input" for="">
                             <i class="fas fa-phone icon-modify"></i>
-                            <input type="number" placeholder="Senha" name="password" class="form-control" value="Senha" style="font-size: 15px;">
+                            <input type="password" placeholder="Confirme a Senha" name="confirm_password" class="form-control" style="font-size: 15px;">
                         </label>
-                        <span class="help-block"><?php echo $password_err; ?></span>
+                        <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
             
             
