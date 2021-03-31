@@ -14,10 +14,7 @@
 <body>
   <header class="cd-main-header js-cd-main-header">
   <div class="cd-logo-wrapper">
-      <a href="../home/" class="cd-logo">Voltar</a>
-    </div>
-    <div class="cd-logo-wrapper" style="margin-left:auto;margin-right:auto">
-      <a href="#0" class="cd-logo">Para Saber Mais</a>
+      <a href="../home/" class="cd-logo" style="font-size: 30x;">Voltar</a>
     </div>
     
     <div class=" js-cd-search">
@@ -30,7 +27,7 @@
       <li class="cd-nav__item"><a href="#0">Contato</a></li>
       <li class="cd-nav__item cd-nav__item--has-children cd-nav__item--account js-cd-item--has-children">
         <a href="#0">
-          <img src="../../pages/perfil/uploads/Foto_gabriel.jpg" alt="avatar">
+          <img src="../../pages/perfil/<?php echo"$_SESSION[login].jpg "?>" onerror="this.src='../perfil/uploads/user.jpg'" alt="avatar">
           <span>Conta</span>
         </a>
     
@@ -71,22 +68,25 @@
 <!-- partial:index.partial.html -->
 <div class="cards-list">
   
-<div class="card 1">
+<a href="./matematica.php"><div class="card 1">
   <div class="card_image"> <img src="../img/paisagem2.jpeg" /> </div>
   <div class="card_title title-white">
     <p>MATEMÁTICA</p>
   </div>
-</div>
+</div></a>
 
+<a href="./construcao.html">
   <div class="card 2">
   <div class="card_image">
-    <img src="../img/paisagem3.jpeg" />
+    <img src="../img/paisagem3.jpeg">
     </div>
   <div class="card_title title-white">
     <p>PORTUGUÊS</p>
   </div>
 </div>
+</a>
 
+<a href="./construcao.html">
 <div class="card 3">
   <div class="card_image">
     <img src="../img/paisagem4.jpeg" />
@@ -95,7 +95,9 @@
     <p>SOCI/FILOSOFIA</p>
   </div>
 </div>
+</a>
   
+<a href="./construcao.html">
   <div class="card 4">
   <div class="card_image">
     <img src="../img/paisagem5.jpeg" />
@@ -106,18 +108,22 @@
   </div>
 
 </div>
+</a>
 
 
 <!-- partial:index.partial.html -->
 <div class="cards-list" style="margin-top:-25px;">
   
+<a href="./construcao.html">
 <div class="card 1">
   <div class="card_image"> <img src="../img/paisagem1.jpg" /> </div>
   <div class="card_title title-white">
     <p>QUIMICA</p>
   </div>
 </div>
+</a>
 
+<a href="./fisica.php">
   <div class="card 2">
   <div class="card_image">
     <img src="../img/paisagem6.jpeg" />
@@ -126,7 +132,9 @@
     <p>FÍSICA</p>
   </div>
 </div>
+</a>
 
+<a href="./construcao.html">
 <div class="card 3">
   <div class="card_image">
     <img src="../img/paisagem7.jpeg" />
@@ -135,7 +143,9 @@
     <p>HISTÓRIA</p>
   </div>
 </div>
+</a>
   
+<a href="./construcao.html">
   <div class="card 4">
   <div class="card_image">
     <img src="../img/paisagem8.jpeg" />
@@ -144,6 +154,7 @@
     <p>GEOGRAFIA</p>
   </div>
   </div>
+  </a>
 
 </div>
 

@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
@@ -43,19 +43,10 @@ body, html {
     <div class="w3-right w3-hide-small" >
       <a href="#about" class="w3-bar-item " style="text-decoration: none;color: WHITE;">SOBRE</a>
       <a href="#team" class="w3-bar-item "style="text-decoration: none;color: WHITE;"> TIME </a>
-
-
-  <div class="w3-dropdown-hover" >
-    <button class="" style="background-color:transparent; border:0px;"> <a href="#work" class="w3-bar-item "style="text-decoration: none; color:white"> TRABALHO</a> </button>
-    <div class="w3-dropdown-content w3-bar-block"  style="background-color:#0d47a1;color:white;">
-      <a href="#" class="w3-bar-item w3-button  w3-hover-blue">Link 1</a>
-      <a href="#" class="w3-bar-item w3-button  w3-hover-blue">Link 2</a>
-      <a href="#" class="w3-bar-item w3-button  w3-hover-blue">Link 3</a>
-    </div>
-  </div>
-     
-      <a href="#pricing" class="w3-bar-item "style="text-decoration: none;color: WHITE;"> OPÇÕES </a>
-      <a href="./login/" class="w3-bar-item "style="text-decoration: none;color: WHITE;BACKGROUND-COLOR:#0086f8 ;border:2px solid #0086f8"> <i class="fa fa-user"></i> ENTRAR </a>
+      <a href="#work" class="w3-bar-item "style="text-decoration: none;color: WHITE;">TRABALHO</a>
+      <a href="#pricing" class="w3-bar-item "style="text-decoration: none;color: WHITE;"> CURSO </a>
+      <a href="#contact" class="w3-bar-item "style="text-decoration: none;color: WHITE;"> CONTATO </a>
+      <a href="./home/" class="w3-bar-item "style="text-decoration: none;color: WHITE;BACKGROUND-COLOR:#0086f8 ;border:2px solid #0086f8"> <i class="fa fa-user"></i> ENTRAR </a>
       <a href="./cadastro/" class="w3-bar-item "style="text-decoration: none;color: WHITE;border:2px solid #0086f8; margin-left:5px;"> CADASTRAR </a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
@@ -71,29 +62,8 @@ body, html {
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16 w3-hover-blue">Close ×</a>
   <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-blue">SOBRE</a>
   <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-blue">TIME</a>
-
-
-  <div class="w3-dropdown-click">
-  <button onclick="myFunction()" class="w3-button w3-hover-blue">TRABALHO</button>
-  <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
-    <a href="#" class="w3-bar-item w3-button">Link 1</a>
-    <a href="#" class="w3-bar-item w3-button">Link 2</a>
-    <a href="#" class="w3-bar-item w3-button">Link 3</a>
-  </div>
-</div>
-
-<script>
-function myFunction() {
-  var x = document.getElementById("Demo");
-  if (x.className.indexOf("w3-show") == -1) { 
-    x.className += " w3-show";
-  } else {
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-</script>
-
-  <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-blue">OPÇÕES</a>
+  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-blue">TRABALHO</a>
+  <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-blue">CURSO</a>
   <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-blue">CONTATO</a>
 </nav>
 
@@ -188,8 +158,8 @@ function myFunction() {
                <div class="">
 
 
-               <div class="w3-container" style="padding:128px 16px" id="about">
-  <h3 class="w3-center " style="font-family:anton;"><b> SOBRE A PARA SABER <span style="color: #0d47a1">MAIS</span></b></h3>
+               <div class="w3-container" style="padding:128px 16px;COLOR:#0d47a1" id="about">
+  <h3 class="w3-center " style="font-family:anton;"><b> SOBRE A PARA SABER MAIS</b></h3>
   <p class="w3-center w3-large">características da companhia:</p>
   <div class="w3-row-padding w3-center" style="margin-top:64px">
     <div class="w3-quarter">
@@ -239,7 +209,7 @@ function myFunction() {
 
 
 <!-- Team Section -->
-<div class="w3-container" style="padding:128px 16px" id="team">
+<div class="w3-container" style="padding:128px 16px;COLOR:#0d47a1" id="team">
   <h3 class="w3-center"><B>TIME DE FUNDADORES</B></h3>
   <p class="w3-center w3-large">O quarteto fantástico:</p>
   <div class="w3-row-padding" style="margin-top:64px">
@@ -281,8 +251,8 @@ function myFunction() {
 
 <!-- Work Section -->
 <div class="w3-container" style="padding-bottom:128px;background-color:#0086f8;color:white " id="work">
-<div style="margin:60px;">
-  <h3 class="w3-center">Área de Trabalho</h3>
+<div style="margin:60px; ">
+  <h3 class="w3-center" ><b>Área de Trabalho<b></h3>
   <p class="w3-center w3-large">Recursos do site:</p>
 </div>
 
@@ -342,7 +312,7 @@ function myFunction() {
   </div>
 </div>
   
-</div>
+
 
 
 <!-- Modal for full size images on click-->
@@ -354,11 +324,149 @@ function myFunction() {
   </div>
 </div>
 
-<!-- Footer -->
+<br><br><br>
 
+<!-- Pricing Section -->
+<div class="container px-4">
+  <div class="row gx-5">
+    <div class="col">
+     <div class="" style="text-align:center;justify-content: center;">
+       
+     <div class="w3-container w3-center" style="COLOR:white" id="pricing">
+  <h3><b>Curso</b></h3>
+  <p class="w3-large">Organização de acordo com o que você precisa </p>
+  
+  <div class="w3-third">
+      <ul class="w3-ul w3-white w3-hover-shadow" style="border:2px solid #0086f8;">
+      </ul>
+    </div>
+
+    <div class="w3-third">
+      <ul class="w3-ul w3-white w3-hover-shadow" style="border:2px solid #0086f8;">
+        <li class="w3-xlarge w3-padding-48"  style="background-color:#0d47a1;color:white;">PS+ </li>
+        <li class="w3-padding-16">Playground</li>
+        <li class="w3-padding-16">Contato</li>
+        <li class="w3-padding-16">Planejamento Semanal</li>
+        <li class="w3-padding-16">Simulado</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">Gratuito</h2>
+        </li>
+        <li class="w3-light-grey  w3-padding-24" >
+          <button class="w3-button  w3-padding-large w3-hover-blue " style="background-color:#0d47a1;color:white;">Inscreva-se</button>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="w3-third">
+      <ul class="w3-ul w3-white w3-hover-shadow" style="border:2px solid #0086f8;">
+      </ul>
+    </div>
+
+    
+  </div>
+</div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div id="about">
+
+
+<!-- Contact Section -->
+<div class="w3-container w3-center" style="padding:80px 16px;COLOR:#0d47a1" id="pricing">
+  <h3><b>Contato</b></h3>
+</div>
+<div class="w3-container " style="padding-top:48px;padding-bottom:48px;COLOR:#0d47a1" id="contact">
+  <p class="w3-large"><font face='agency fb'>Nos envie uma mensagem para mais informações:</font></p>
+  <div style="margin-top:48px;COLOR:#0d47a1">
+    <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right" style="padding-bottom:20px;"></i><font face='agency fb'>São João Nepomuceno/MG</font></p>
+    <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right" style="padding-bottom:20px;"></i> <font face='agency fb'>+55(32)3261-9999</font></p>
+    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right" style="padding-bottom:20px;"> </i> <font face='agency fb'>parasabermais@outlook.com.br </font></p>
+    <br>
+    <!-- Image of location/map -->
+    <div style="text-align:center;margin-top: 60px;">
+    <h3 class="w3-center"><font face='anton'><b>MAPA</b></font></h3>
+    <p class="w3-center w3-large"><font face='agency fb'>Nossa localização no Google Maps:</font></p>
+      <iframe class="w3-center " style="width:100%;HEIGHT: 500PX;margin-top:48px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10497.634617221393!2d-43.0107005580467!3d-21.52830138495572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb15620c7671afbb!2sCentro%20Integrado%20Sesi-Senai%20Robson%20Braga%20de%20Andrade!5e0!3m2!1spt-BR!2sbr!4v1616583373678!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Footer -->
+<footer class="w3-center w3-padding-64" style="background-color: #0086f8; color:white">
+
+<div class="container px-4">
+  <div class="row gx-5">
+    <div class="col">
+     <div class="">
+     <a href="#home" class="w3-button w3-white w3-hover-blue"><i class="fa fa-arrow-up w3-margin-right"></i>CIMA</a>
+     <hr>
+
+      <div class="container overflow-hidden">
+        <div class="row gx-5">
+          <div class="col">
+          <div class=""> 
+          <a href="../../../pi02_e/index.html" target="_blank" rel="noopener noreferrer"> <img src="./img/techunix.png" alt="" width="100" height="100" class="d-inline-block align-top"></a>
+          <img src="./img/logops+.png" alt="" width="100" height="100" class="d-inline-block align-top" style="margin-top:10px">
+
+
+          </div>
+          </div>
+
+          <div class="col">
+            <div class="">
+
+            <div class="container px-4">
+  <div class="row gx-5">
+    <div class="col">
+     <div class="">
+     <a href="#about" class="w3-bar-item "style="text-decoration: none;color: WHITE;"> Sobre</a><br>
+     <a href="#team" class="w3-bar-item "style="text-decoration: none;color: WHITE;"> Time </a><br>
+     <a href="#work" class="w3-bar-item "style="text-decoration: none;color: WHITE;"> Trabalho </a><br>
+     <a href="#pricing" class="w3-bar-item "style="text-decoration: none;color: WHITE;"> Curso </a><br>
+     <a href="#contact" class="w3-bar-item "style="text-decoration: none;color: WHITE;"> Contato </a><br>
+
+     </div>
+    </div>
+    <div class="col">
+      <div class="">
+        Matérias:<br>
+        Matemática<br>
+        Português<br>
+        Física<br>
+        Química<br>
+        Biologia<br>
+        História<br>
+        Geografia<br>
+        Inglês<br>
+      </div>
+    </div>
+  </div>
+</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+     </div>
+    </div>
+  </div>
+</div>
+
+
+
+</footer>
 <div class="slide" style="background-color: #0d47a1;color:white;">
 <div>
-<p>Desenvolvido por <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-blue" style="color:white;text-decoration:none;">TECHUNIX</a></p>
+<p>Desenvolvido por <a href="../../../pi02_e/index.html" title="TechUNIX" target="_blank" class="w3-hover-text-blue" style="color:white;text-decoration:none;">TECHUNIX</a></p>
  </div>
 
 
