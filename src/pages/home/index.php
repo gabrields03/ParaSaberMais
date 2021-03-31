@@ -8,11 +8,7 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css'>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-
   <link rel="stylesheet" href="./style.css">
-
-
-
 <script>
 document.getElementsByTagName("html")[0].className += " js";
 </script>
@@ -39,7 +35,7 @@ document.getElementsByTagName("html")[0].className += " js";
       <li class="cd-nav__item"><a href="#0">Contato</a></li>
       <li class="cd-nav__item cd-nav__item--has-children cd-nav__item--account js-cd-item--has-children">
         <a href="#0">
-          <img src="../../pages/perfil/uploads/Foto_gabriel.jpg" alt="avatar">
+          <img src="../perfil/uploads/<?php echo"$_SESSION[login].jpg "?>" onerror="this.src='../perfil/uploads/user.jpg'" alt="avatar">
           <span>Conta</span>
         </a>
     
@@ -52,55 +48,76 @@ document.getElementsByTagName("html")[0].className += " js";
   </header> <!-- .cd-main-header -->
   
   <main class="cd-main-content">
-    <nav class="cd-side-nav js-cd-side-nav">
-      <ul class="cd-side__list js-cd-side__list" style="position:fixed">
-        <li class="cd-side__label"><span>Principal</span></li>
+  <nav class="cd-side-nav js-cd-side-nav">
+      <ul class="cd-side__list js-cd-side__list">
+        <li class="cd-side__label"><span>Main</span></li>
         <li class="cd-side__item cd-side__item--has-children cd-side__item--overview js-cd-item--has-children">
-          <a href="#0">Plano de Estudo</a>    
-        </li>
-    
-        <li class="cd-side__item cd-side__item--has-children cd-side__item--comments js-cd-item--has-children">
-          <a href="../materias/">Matérias</a>
+          <a href="#0">Overview</a>
           
           <ul class="cd-side__sub-list">
-            <li class="cd-side__sub-item"><a href="#0">Matemática</a></li>
-            <li class="cd-side__sub-item"><a href="#0">Português</a></li>
-            <li class="cd-side__sub-item"><a href="#0">Biologia</a></li>
-            <li class="cd-side__sub-item"><a href="#0">Geografia</a></li>
-            <li class="cd-side__sub-item"><a href="#0">História</a></li>
-            <li class="cd-side__sub-item"><a href="#0">Sociologia</a></li>
-            <li class="cd-side__sub-item"><a href="#0">Química</a></li>
-            <li class="cd-side__sub-item"><a href="#0">Física</a></li>
+            <li class="cd-side__sub-item"><a href="#0">All Data</a></li>
+            <li class="cd-side__sub-item"><a href="#0">Category 1</a></li>
+            <li class="cd-side__sub-item"><a href="#0">Category 2</a></li>
           </ul>
         </li>
 
-        <li class="cd-side__item cd-side__item--has-children cd-side__item--overview js-cd-item--has-children">
-          <a href="../materias/">Simulados</a>    
+        <li class="cd-side__item cd-side__item--has-children cd-side__item--notifications cd-side__item--selected js-cd-item--has-children">
+          <a href="#0">Notifications<span class="cd-count">3</span></a>
+          
+          <ul class="cd-side__sub-list">
+            <li class="cd-side__sub-item"><a aria-current="page" href="#0">All Notifications</a></li>
+            <li class="cd-side__sub-item"><a href="#0">Friends</a></li>
+            <li class="cd-side__sub-item"><a href="#0">Other</a></li>
+          </ul>
         </li>
-
-
-        <li class="cd-side__label"><span>Extra</span></li>
-
+    
+        <li class="cd-side__item cd-side__item--has-children cd-side__item--comments js-cd-item--has-children">
+          <a href="#0">Comments</a>
+          
+          <ul class="cd-side__sub-list">
+            <li class="cd-side__sub-item"><a href="#0">All Comments</a></li>
+            <li class="cd-side__sub-item"><a href="#0">Edit Comment</a></li>
+            <li class="cd-side__sub-item"><a href="#0">Delete Comment</a></li>
+          </ul>
+        </li>
+      </ul>
+    
+      <ul class="cd-side__list js-cd-side__list">
+        <li class="cd-side__label"><span>Secondary</span></li>
         <li class="cd-side__item cd-side__item--has-children cd-side__item--bookmarks js-cd-item--has-children">
-          <a href="../playground/">Playground</a>         
+          <a href="#0">Bookmarks</a>
+          
+          <ul class="cd-side__sub-list">
+            <li class="cd-side__sub-item"><a href="#0">All Bookmarks</a></li>
+            <li class="cd-side__sub-item"><a href="#0">Edit Bookmark</a></li>
+            <li class="cd-side__sub-item"><a href="#0">Import Bookmark</a></li>
+          </ul>
         </li>
 
         <li class="cd-side__item cd-side__item--has-children cd-side__item--images js-cd-item--has-children">
-          <a href="">Mural</a>
+          <a href="#0">Images</a>
           
+          <ul class="cd-side__sub-list">
+            <li class="cd-side__sub-item"><a href="#0">All Images</a></li>
+            <li class="cd-side__sub-item"><a href="#0">Edit Image</a></li>
+          </ul>
         </li>
     
         <li class="cd-side__item cd-side__item--has-children cd-side__item--users js-cd-item--has-children">
-          <a href="../biblioteca/">Biblioteca</a>
+          <a href="#0">Users</a>
+          
+          <ul class="cd-side__sub-list">
+            <li class="cd-side__sub-item"><a href="#0">All Users</a></li>
+            <li class="cd-side__sub-item"><a href="#0">Edit User</a></li>
+            <li class="cd-side__sub-item"><a href="#0">Add User</a></li>
+          </ul>
         </li>
-
-        <li class="cd-side__item cd-side__item--has-children cd-side__item--users js-cd-item--has-children">
-          <a href="../contato/">Contato</a>
-        </li>
-
       </ul>
     
-   
+      <ul class="cd-side__list js-cd-side__list">
+        <li class="cd-side__label"><span>Action</span></li>
+        <li class="cd-side__btn"><button class="reset" href="#0">+ Button</button></li>
+      </ul>
     </nav>
   
     <div class="cd-content-wrapper">
@@ -265,18 +282,6 @@ document.getElementsByTagName("html")[0].className += " js";
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-    
 
     </div> <!-- .content-wrapper -->
 

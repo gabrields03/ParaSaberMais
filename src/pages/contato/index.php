@@ -50,7 +50,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Cards</title>
+  <title>ParaSaberMais</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css'><link rel="stylesheet" href="../css/style.css">
@@ -76,15 +76,17 @@
     <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right" style="padding-bottom:20px;"></i> <font face='agency fb'>+55(32)3261-9999</font></p>
     <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right" style="padding-bottom:20px;"> </i> <font face='agency fb'>parasabermais@outlook.com.br </font></p>
     <br>
-    <form action="/action_page.php" target="_blank">
+    <form action="/action_page.php" target="_blank" id="myForm">
       <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name" style="margin-bottom:20px;"></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email" style="margin-bottom:20px;"></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject" style="margin-bottom:20px;"></p>
       <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message" style="margin-bottom:20px;"></p>
       <p>
-        <button class="w3-button w3-hover-blue"  style="background-color:#0d47a1;color:white" type="submit">
+        <button class="w3-button w3-hover-blue" onclick="sendEmail()" id="btn" value="Send An Email" style="background-color:#0d47a1;color:white" type="submit">
           <i class="fa fa-paper-plane"></i> ENVIAR MENSAGEM
         </button>
+        <br><br><br>
+        <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LdOYD4aAAAAADYcEi7WCrUjZ9jAbFEEkJ0LJv19"></div>
       </p>
     </form>
     <!-- Image of location/map -->

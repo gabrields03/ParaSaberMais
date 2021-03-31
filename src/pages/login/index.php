@@ -59,7 +59,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                $_SESSION["dtRegistro"] = $row["dtRegistro"];
 
                //redireciona para página inicial
-               header("location: ../inicial/index.php");
+               header("location: ../home/index.php");
               
               
               }else{
@@ -125,7 +125,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </button>
             <br><br>
             <button class="btn transparent" id="sign-up-btn">
-               <a href="../../index.php">Voltar</a>
+               <a href="../index.php">Voltar</a>
             </button>
             
           </div>
