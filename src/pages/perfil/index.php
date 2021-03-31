@@ -8,28 +8,65 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 include"../../../_bd/Config.php";
 
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+
+  //valida login
+  if(empty(trim($_POST["login"]))){
+      $login_err = "Por favor entre com o email.";
+   } else{
+    $_SESSION["login"] = trim($_POST["login"]);
+  }
+
+
+  //valida name
+  if(empty(trim($_POST["name"]))){
+      $name_err = "Por favor entre com o nome.";
+   } else{
+      $name = trim($_POST["name"]);
+  }
+
+  
+  //valida cell
+  if(empty(trim($_POST["cell"]))){
+      $cell_err = "Por favor entre com o cell.";
+   } else{
+      $cell = trim($_POST["cell"]);
+  }
+
+
+  // checa erros de entrada antes de inserir no bd
+  if(empty($login_err) && empty($name_err) && empty($cell_err)){
+      // prepara a query de atualização
+      $sql = "UPDATE usuarios SET login = '".$_SESSION["login"]."' WHERE login = '".$_SESSION["login"]."'";
+      if ($conn->query($sql) === TRUE) {
+        echo"deubom";
+    } else{
+      echo"deuruim";
+    }
+    
+    $conn->close();
+  }
+
+}
+
+//Adicionar foto de perfil
 if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] == 0) {
   $imagem = array();
   $imagem = $_FILES['foto_perfil'];
   $url = save_image($imagem);
-echo $url;
 }
 
-/**
-* Está função é responsável para salva uma imágem no diretório uploads/usuarios/
-* @return String "url da imagem" ou null
-* @author Joab Torres <joabtorres1508@gmail.com>
-*/
 function save_image($file) {
   $imagem = array();
   $largura = 400; //largura desejada
   $altura = 400; // altura deseada
-  $imagem['diretorio'] = './uploads'; //diretório desejado
+  $imagem['diretorio'] = './uploads/'; //diretório desejado
   $imagem['temp'] = $file['tmp_name'];
   $imagem['extensao'] = explode(".", $file['name']);
   $imagem['extensao'] = strtolower(end($imagem['extensao']));
-  $imagem['name'] = md5(rand(1000, 900000) . time()) . '.' . $imagem['extensao'];
-  if ($imagem['extensao'] == 'jpg' || $imagem['extensao'] == 'jpeg' || $imagem['extensao'] == 'png') {
+  $imagem['name'] = $_SESSION['login'] . '.' . $imagem['extensao'];
+  if ($imagem['extensao'] == 'jpg'){
 
       list($larguraOriginal, $alturaOriginal) = getimagesize($imagem['temp']);
 
@@ -42,26 +79,15 @@ function save_image($file) {
 
       $imagem_final = imagecreatetruecolor($largura, $altura);
 
-      if ($imagem['extensao'] == 'jpg' || $imagem['extensao'] == 'jpeg') {
-          $imagem_original = imagecreatefromjpeg($imagem['temp']);
-          imagecopyresampled($imagem_final, $imagem_original, 0, 0, $x, 0, $largura, $altura, $larguraOriginal, $alturaOriginal);
-          imagejpeg($imagem_final, $imagem['diretorio'] . "/" . $imagem['name'], 90);
-      } else if ($imagem['extensao'] == 'png') {
-          $imagem_original = imagecreatefrompng($imagem['temp']);
-          imagecopyresampled($imagem_final, $imagem_original, 0, 0, $x, 0, $largura, $altura, $larguraOriginal, $alturaOriginal);
-          imagepng($imagem_final, $imagem['diretorio'] . "/" . $imagem['name']);
+      $imagem_original = imagecreatefromjpeg($imagem['temp']);
+      imagecopyresampled($imagem_final, $imagem_original, 0, 0, $x, 0, $largura, $altura, $larguraOriginal, $alturaOriginal);
+      imagejpeg($imagem_final, $imagem['diretorio'] . "/" . $imagem['name'], 90);
+      
+      } else {
+        echo "Formato inválido, aceitamos somente jpg";
       }
       return $imagem['diretorio'] . "/" . $imagem['name'];
-  } else {
-      return null;
   }
-}
-
-if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] == 0) {
-  $sql = "UPDATE usuarios SET img = '".$imagem['name']."' WHERE usuarios.login = '".$_SESSION['login']."'";
-  $conn->query($sql);
-}
-
 
 ?>
 <html>
@@ -78,25 +104,18 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 <body class="w3-light-grey">
 
 <!-- Page Container -->
-<div class="w3-content" style="max-width:1400px;">
+<div class="w3-content" style="max-width:1200px;">
 
   <!-- The Grid -->
   <div class="w3-row-padding ">
   
     <!-- Left Column -->
-    <div class="w3-third ">
+    <div class="w3-third">
     
       <div class="w3-white w3-text-grey w3-card-4 w3-margin-top">
         <div class="w3-display-container" >
-          <img src="./fotos_perfil/<?php $sql = "SELECT `img` FROM `usuarios` WHERE login = '".$_SESSION['login']."'";
-            $result = $conn->query($sql);
-            
-            if ($result->num_rows > 0) {
-              // Resultado
-              while($row = $result->fetch_assoc()) {
-              $_SESSION['img'] = $row["img"];
-              }
-            } echo $_SESSION["img"]; ?>" style="width: 100%;" alt="">
+          <img src="./uploads/<?php echo"$_SESSION[login].jpg "?>" onerror="this.src='./uploads/user.jpg'" style="width: 100%;" alt="">
+          
           <div class="w3-display-bottomleft w3-container w3-text-black">
 	</form>
             <h2><?php echo $_SESSION["login"]; ?></h2>
@@ -104,16 +123,15 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           </div>
         </div>
 
-        <form action="index.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+        <form method="POST" enctype="multipart/form-data" autocomplete="off">
           <input type="file" name="foto_perfil"/>
           <input type="submit" value="Enviar">
         </form>
    
         <div class="w3-container">
-          <p><i class="fa fa-user fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $_SESSION["name"]; ?></p>
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>São João Nepomuceno</p>
-          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $_SESSION["email"]; ?></p>
-          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $_SESSION["cell"]; ?></p>
+          <p><i class="fa fa-user fa-fw w3-margin-right w3-large" ></i><?php echo $_SESSION["name"]; ?></p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large"></i><?php echo $_SESSION["email"]; ?></p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large"></i><?php echo $_SESSION["cell"]; ?></p>
 
           <hr>
 
@@ -128,46 +146,59 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     <div class="w3-twothird">
     
       <div class="w3-container w3-card w3-white w3-margin-bottom w3-margin-top">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-user fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Página de Perfil</h2>
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-user fa-fw w3-margin-right w3-xxlarge"></i>Página de Perfil</h2>
         <div class="w3-container">
           <h5 class="w3-opacity"><b>Altere seus dados</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-user fa-fw w3-margin-right"></i>Nome de usuário</h6>
           <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="form">
-                    
-
-                   
             
             <div class="form-group <?php echo (!empty($login_err)) ? 'has-error' : ''; ?>">
-                     <label class="label-input" for="">
-                            <i class="fas fa-user icon-modify"></i>
-                            <input type="text" placeholder="Nome de usuário" name="login" class="form-control" value="<?php echo $_SESSION["login"]; ?>">
-                        </label>
-                        <span class="help-block"></span>
+                <label class="label-input" for="">
+                      <i class="fas fa-user icon-modify"></i>
+                      <input type="text" placeholder="Nome de usuário" name="login" class="form-control" value="<?php echo $_SESSION["login"]; ?>" style="font-size: 15px;">
+                  </label>
+                  <span class="help-block"><?php echo $login_err; ?></span>
             </div>
-            <h6 class="w3-text-teal"><i class="fa fa-user fa-fw w3-margin-right"></i>Nome completo</h6>
 
             <div class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
                      <label class="label-input" for="">
                             <i class="fas fa-user icon-modify"></i>
-                            <input type="text" placeholder="Nome de usuário" name="name" class="form-control" value="<?php echo $_SESSION["name"]; ?>">
-                        </label>
-                        <span class="help-block"></span>
+                            <input type="text" placeholder="Nome de usuário" name="name" class="form-control" value="<?php echo $_SESSION["name"]; ?>" style="font-size: 15px;"> 
+                      </label>
+                        <span class="help-block"><?php echo $name_err; ?></span>
             </div>
-          <h6 class="w3-text-teal"><i class="fa fa-user fa-fw w3-margin-right"></i>Email</h6>
 
             <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
                     <label class="label-input" for="">
                             <i class="far fa-envelope icon-modify"></i>
-                            <input type="email" placeholder="Email"  name="email" class="form-control" value="<?php echo $_SESSION["email"]; ?>">
-                        </label>
-                     </div>
-                     <h6 class="w3-text-teal"><i class="fa fa-user fa-fw w3-margin-right"></i>Número de telefone</h6>
+                            <input type="email" placeholder="Email"  name="email" class="form-control" value="<?php echo $_SESSION["email"]; ?>" style="font-size: 15px;">
+                     </label>
+                        <span class="help-block"><?php echo $email_err; ?></span>
+             </div>
+                     
             <div class="form-group <?php echo (!empty($cell_err)) ? 'has-error' : ''; ?>">
                      <label class="label-input" for="">
                             <i class="fas fa-phone icon-modify"></i>
-                            <input type="number" placeholder="Telefone" name="cell" class="form-control" value="<?php echo $_SESSION["cell"]; ?>">
+                            <input type="number" placeholder="cell" name="cell" class="form-control" value="<?php echo $_SESSION["cell"]; ?>" style="font-size: 15px;">
                         </label>
+                        <span class="help-block"><?php echo $cell_err; ?></span>
             </div>
+
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                     <label class="label-input" for="">
+                            <i class="fas fa-phone icon-modify"></i>
+                            <input type="number" placeholder="Senha" name="password" class="form-control" value="Senha" style="font-size: 15px;">
+                        </label>
+                        <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                     <label class="label-input" for="">
+                            <i class="fas fa-phone icon-modify"></i>
+                            <input type="number" placeholder="Senha" name="password" class="form-control" value="Senha" style="font-size: 15px;">
+                        </label>
+                        <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+            
             
     
                        <input type="submit" class="btn btn-primary" value="Editar">

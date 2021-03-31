@@ -5,8 +5,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	header("location: ../login/index.php");
 	exit;
   }
-  
-include"../../components/side/index.php";
+
 
 ?>
 

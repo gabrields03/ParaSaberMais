@@ -5,9 +5,6 @@ require_once "../../../_bd/Config.php";
 
 // criação das variáveis para controle de acesso
 $login                = $_POST["login"];
-$name                 = "";
-$cell                 = "";
-$email                = "";
 $login_err            = "";
 $name_err             = "";
 $cell_err             = "";

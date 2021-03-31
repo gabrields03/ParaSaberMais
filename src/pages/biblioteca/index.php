@@ -14,10 +14,10 @@
 <body>
   <header class="cd-main-header js-cd-main-header">
   <div class="cd-logo-wrapper">
-      <a href="#0" class="cd-logo">Voltar</a>
+      <a href="../inicial/" class="cd-logo">Voltar</a>
     </div>
     <div class="cd-logo-wrapper" style="margin-left:auto;margin-right:auto">
-      <a href="#0" class="cd-logo">Para Saber Mais</a>
+      <a href="#0" class="cd-logo"><img src="../../../img/LOGO.png" alt=""></a>
     </div>
     
     <div class=" js-cd-search">

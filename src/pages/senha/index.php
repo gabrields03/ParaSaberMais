@@ -33,7 +33,7 @@ if(empty(trim($_POST["password"]))) {
      if(empty($password_err) && empty($confirm_password_err)){
       
       $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-      $sql = "INSERT INTO usuarios (login, name, cell, email, password, img) VALUES ('".$_SESSION["login"]."', '".$_SESSION["name"]."', '".$_SESSION["cell"]."', '".$_SESSION["email"]."', '$hashed_password', 'user.jpg')";
+      $sql = "INSERT INTO usuarios (login, name, cell, email, password) VALUES ('".$_SESSION["login"]."', '".$_SESSION["name"]."', '".$_SESSION["cell"]."', '".$_SESSION["email"]."', '$hashed_password')";
   
       if ($conn->query($sql) === TRUE) {
         header("location: ../login/index.php");

@@ -12,7 +12,8 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 }
 
 // cria e inicializa as variáveis com ""
-$login = $password = "";
+$login = "";
+$password = "";
 $login_err = $password_err = "";
  
 // testa se o método utilizado foi o POST
@@ -56,7 +57,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                $_SESSION["cell"] = $row["cell"];
                $_SESSION["email"] = $row["email"];
                $_SESSION["dtRegistro"] = $row["dtRegistro"];
-               $_SESSION["img"] = $row["img"];
 
                //redireciona para página inicial
                header("location: ../inicial/index.php");

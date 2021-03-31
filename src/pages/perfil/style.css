@@ -13,7 +13,7 @@ input{
     color: #fff;
 }
 .title-second {
-    color:#20c997;
+    color:#4481eb;
 }
 .description {
     font-size: 14px;
@@ -45,19 +45,19 @@ a:link{
 }
 
 .btn-primary {
-    background-color: #20c997 !important;
+    background-color: #4481eb !important;
     border: 1px solid #fff !important;
     transition: background-color .5s !important;
 }
 .btn-primary:hover {
     background-color: #fff !important;
-    border: 1px solid#20c997 !important;
-    color:#20c997 !important;
+    border: 1px solid#4481eb !important;
+    color:#4481eb !important;
 }
 
 
 .help-block{
-    color: #20c997;
+    color: #4481eb;
     font-size: 15px;
 }
 
@@ -99,10 +99,6 @@ input:-webkit-autofill
     display: flex;
     align-items: center;
     margin: 8px;
-}
-.icon-modify {
-    color: #7f8c8d;
-    padding: 0 5px;
 }
 
 /* second content*/
