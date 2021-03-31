@@ -14,10 +14,10 @@
 <body>
   <header class="cd-main-header js-cd-main-header">
   <div class="cd-logo-wrapper">
-      <a href="../inicial/" class="cd-logo">Voltar</a>
+      <a href="../home/" class="cd-logo">Voltar</a>
     </div>
     <div class="cd-logo-wrapper" style="margin-left:auto;margin-right:auto">
-      <a href="#0" class="cd-logo"><img src="../../../img/LOGO.png" alt=""></a>
+      <a href="#0" class="cd-logo">Para Saber Mais</a>
     </div>
     
     <div class=" js-cd-search">
@@ -43,16 +43,7 @@
   </header> <!-- .cd-main-header -->
   
     <div class="cd-content-wrapper">
-    <?php
-session_start();
 
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-	header("location: ../login/index.php");
-	exit;
-  }
-
-
-?>
 
 
 <!DOCTYPE html>
