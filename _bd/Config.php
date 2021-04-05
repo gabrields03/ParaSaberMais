@@ -2,7 +2,7 @@
 
 define('HOST'    , 'localhost');
 define('USERNAME', 'root')     ;
-define('PASSWORD', 'ga012176') ;
+define('PASSWORD', '') ;
 define('DBNAME'  , 'pi202102') ;
 
 // Estabelecendo conexão
