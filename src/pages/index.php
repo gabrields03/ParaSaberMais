@@ -413,7 +413,7 @@ body, html {
         <div class="row gx-5">
           <div class="col">
           <div class=""> 
-          <a href="../../../pi02_e/index.html" target="_blank" rel="noopener noreferrer"> <img src="./img/techunix.png" alt="" width="100" height="100" class="d-inline-block align-top"></a>
+          <a href="../../pi02_e/index.html" target="_blank" rel="noopener noreferrer"> <img src="./img/techunix.png" alt="" width="100" height="100" class="d-inline-block align-top"></a>
           <img src="./img/logops+.png" alt="" width="100" height="100" class="d-inline-block align-top" style="margin-top:10px">
 
 
@@ -466,7 +466,7 @@ body, html {
 </footer>
 <div class="slide" style="background-color: #0d47a1;color:white;">
 <div>
-<p>Desenvolvido por <a href="../../../pi02_e/index.html" title="TechUNIX" target="_blank" class="w3-hover-text-blue" style="color:white;text-decoration:none;">TECHUNIX</a></p>
+<p>Desenvolvido por <a href="../../pi02_e/index.html" title="TechUNIX" target="_blank" class="w3-hover-text-blue" style="color:white;text-decoration:none;">TECHUNIX</a></p>
  </div>
 
 

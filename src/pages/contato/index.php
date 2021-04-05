@@ -170,7 +170,7 @@ include ("./recaptchlib.php");
 
   <!-- Configurando Recaptcha -->
 <?php
-  $secret = "6LdOYD4aAAAAAKJr9Pxl0pR9C8D10cirzLYaSFTf";
+  $secret = "";
 
   $response = null;
   $reCaptcha = new reCaptcha($secret);
